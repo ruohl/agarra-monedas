@@ -1,10 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://ygvukory46re"]
+[gd_scene load_steps=12 format=3 uid="uid://ygvukory46re"]
 
 [ext_resource type="Texture2D" uid="uid://rxodan65ee14" path="res://sprites/items/moneda/Gold/Gold_1.png" id="1_47csj"]
+[ext_resource type="Texture2D" uid="uid://fw2eawygtpnf" path="res://sprites/items/moneda/Gold/Gold_2.png" id="2_gvniu"]
+[ext_resource type="Texture2D" uid="uid://dwmo0tshjcuw6" path="res://sprites/items/moneda/Gold/Gold_3.png" id="3_q325s"]
+[ext_resource type="Texture2D" uid="uid://c83ryal3foymr" path="res://sprites/items/moneda/Gold/Gold_4.png" id="4_h46vu"]
+[ext_resource type="Texture2D" uid="uid://b2a2bieyfo3gu" path="res://sprites/items/moneda/Gold/Gold_5.png" id="5_u528o"]
+[ext_resource type="Texture2D" uid="uid://b32jwom10xied" path="res://sprites/items/moneda/Gold/Gold_6.png" id="6_vdmdy"]
+[ext_resource type="Texture2D" uid="uid://b2xfs8e6f8bbb" path="res://sprites/items/moneda/Gold/Gold_7.png" id="7_h0hr4"]
+[ext_resource type="Texture2D" uid="uid://bjmjyresuoef" path="res://sprites/items/moneda/Gold/Gold_8.png" id="8_4ol4t"]
+[ext_resource type="Texture2D" uid="uid://clvc2p67421r7" path="res://sprites/items/moneda/Gold/Gold_9.png" id="9_c6g4d"]
+[ext_resource type="Texture2D" uid="uid://v2hqqp37f5uy" path="res://sprites/items/moneda/Gold/Gold_10.png" id="10_mjyir"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5fg3o"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_47csj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gvniu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q325s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h46vu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u528o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vdmdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h0hr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4ol4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c6g4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mjyir")
+}],
+"loop": true,
+"name": &"moneda_girando",
+"speed": 10.0
+}]
 
 [node name="moneda" type="Node2D"]
-position = Vector2(177, 112)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_47csj")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+sprite_frames = SubResource("SpriteFrames_5fg3o")
+animation = &"moneda_girando"
+autoplay = "moneda_girando"
