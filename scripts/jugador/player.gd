@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func manejarAnimacion() -> void:
 	#Manejo de dirección
-	if (velocity != Vector2.ZERO) and is_on_floor():
+	if (velocity != Vector2.ZERO and velocity.y == 0):
 		ultimaDireccion = velocity.x < 0
 
 	if (ultimaDireccion):
@@ -38,7 +38,7 @@ func manejarAnimacion() -> void:
 
 	if not is_on_floor():
 		sprite.play("Jump")
-	if !velocity:
+	if velocity == Vector2.ZERO:
 		sprite.play("Idle")
 	else:
 		sprite.play("Run")

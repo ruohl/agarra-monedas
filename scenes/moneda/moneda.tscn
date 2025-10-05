@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ygvukory46re"]
+[gd_scene load_steps=14 format=3 uid="uid://ygvukory46re"]
 
 [ext_resource type="Texture2D" uid="uid://rxodan65ee14" path="res://sprites/items/moneda/Gold/Gold_1.png" id="1_47csj"]
+[ext_resource type="Script" uid="uid://b75jo1qttdu14" path="res://scripts/varios/moneda.gd" id="1_q325s"]
 [ext_resource type="Texture2D" uid="uid://fw2eawygtpnf" path="res://sprites/items/moneda/Gold/Gold_2.png" id="2_gvniu"]
 [ext_resource type="Texture2D" uid="uid://dwmo0tshjcuw6" path="res://sprites/items/moneda/Gold/Gold_3.png" id="3_q325s"]
 [ext_resource type="Texture2D" uid="uid://c83ryal3foymr" path="res://sprites/items/moneda/Gold/Gold_4.png" id="4_h46vu"]
@@ -50,10 +51,21 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="moneda" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_h46vu"]
+radius = 5.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="moneda" type="Node2D"]
+script = ExtResource("1_q325s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("SpriteFrames_5fg3o")
 animation = &"moneda_girando"
 autoplay = "moneda_girando"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_h46vu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
